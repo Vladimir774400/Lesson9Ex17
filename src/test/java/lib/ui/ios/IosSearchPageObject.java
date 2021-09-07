@@ -1,10 +1,9 @@
 package lib.ui.ios;
 
-import io.appium.java_client.AppiumDriver;
-import lib.ui.SearchPageObject;
+import lib.ui.searchPageObject;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-public class IosSearchPageObject extends SearchPageObject
+public class IosSearchPageObject extends searchPageObject
     {
         static {
         SEARCH_INIT_ELEMENT = "//*[contains(@text,'Search Wikipedia')]";

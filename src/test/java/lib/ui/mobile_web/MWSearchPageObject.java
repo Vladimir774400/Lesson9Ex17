@@ -1,9 +1,9 @@
 package lib.ui.mobile_web;
 
-import lib.ui.SearchPageObject;
+import lib.ui.searchPageObject;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-public class MWSearchPageObject extends SearchPageObject {
+public class MWSearchPageObject extends searchPageObject {
         static {
         SEARCH_INIT_ELEMENT = "css:button#searchIcon";
         SEARCH_INPUT = "css:form>input[type='search']";
@@ -14,5 +14,8 @@ public class MWSearchPageObject extends SearchPageObject {
         {
             super(driver);
         }
+
+
+
 }
 

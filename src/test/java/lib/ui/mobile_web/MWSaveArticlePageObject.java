@@ -1,9 +1,9 @@
 package lib.ui.mobile_web;
 
-import lib.ui.SaveArticles;
+import lib.ui.saveArticles;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-public class MWSaveArticlePageObject extends SaveArticles {
+public class MWSaveArticlePageObject extends saveArticles {
     static {
                 ARTICLE1_CONTAINS_TEXT = "css:body > div.mw-overlays-container > div > div.overlay-content > div > div.results > div > ul > li:nth-child(3) > a.title > div.wikidata-description";
                 ARTICLE2_CONTAINS_TEXT = "css:body > div.mw-overlays-container > div > div.overlay-content > div > div.results > div > ul > li > a.title > h3";

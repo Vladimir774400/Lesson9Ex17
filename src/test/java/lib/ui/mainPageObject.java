@@ -4,13 +4,22 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
+import io.qameta.allure.Attachment;
+import io.qameta.allure.Step;
 import lib.Platform;
+import org.apache.commons.exec.ExecuteException;
+import org.apache.commons.io.FileUtils;
+import org.aspectj.util.FileUtil;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.Duration;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -22,8 +31,8 @@ public class mainPageObject {
         this.driver = driver;
     }
 
-    //������
-
+    //Методы
+    @Step("Подгатавливаю ориентацию экрана. Положение вертикальное")
     public void prepareScreenOrientation ()
     {
         if (driver instanceof AppiumDriver) {
@@ -139,7 +148,7 @@ public class mainPageObject {
         {
             if (alreadySwiped>max_swipes)
             {
-                waitForElem(locator,"�� ���� ����� �������� � �������� ������� ����. \n" + error_message , 0);
+                waitForElem(locator,"Не могу найти элемента в процессе скролла вниз. \n" + error_message , 0);
                 return;
             }
 
@@ -184,7 +193,7 @@ public class mainPageObject {
     {
         int amount_of_elements = getAmountOfElem(locator);
         if (amount_of_elements > 0){
-            String default_message = "������� '"+ locator + "' �� ��������";
+            String default_message = "Элемент '"+ locator + "' не появился";
             throw new AssertionError(default_message + "" + error_message);
         }
     }
@@ -220,4 +229,37 @@ public class mainPageObject {
         }
 
     }
+
+    public String takeScreenShot(String name)
+    {
+        TakesScreenshot ts = (TakesScreenshot)this.driver;
+        File source = ts.getScreenshotAs(OutputType.FILE);
+        String path = System.getProperty("user.dir") + "/" + name + "_screenshot.png";
+        try
+        {
+            FileUtils.copyFile(source, new File(path));
+            System.out.println("Скриншот сделан из: "+ path);
+        }
+        catch (Exception e)
+        {
+            System.out.println("Не могу сделать скриншот. Ошибка: "+ e.getMessage());
+        }
+        return path;
+    }
+
+    @Attachment
+    public static byte[] screenshot(String path)
+    {
+        byte[] bytes = new byte[0];
+        try
+        {
+            bytes = Files.readAllBytes(Paths.get(path));
+        }
+        catch (IOException e)
+        {
+            System.out.println("Cannot get bytes from screenshot. Error: "+e.getMessage());
+        }
+        return bytes;
+    }
+
 }

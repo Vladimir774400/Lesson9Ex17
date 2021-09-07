@@ -1,9 +1,9 @@
 package lib.ui.android;
 
-import lib.ui.SaveArticles;
+import lib.ui.saveArticles;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-public class AndroidSaveArticlePageObject extends SaveArticles
+public class AndroidSaveArticlePageObject extends saveArticles
 {
     static {
         ARTICLE1_CONTAINS_TEXT = "xpath://*[contains(@text,'Java (programming language')]";

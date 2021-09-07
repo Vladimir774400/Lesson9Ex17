@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/src/test/java/lib/ui/SaveArticles.java" charset="windows-1251" />
-    <file url="file://$PROJECT_DIR$/src/test/java/lib/ui/SearchPageObject.java" charset="windows-1251" />
-    <file url="file://$PROJECT_DIR$/src/test/java/lib/ui/mainPageObject.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/Tests/FirstTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/lib/ui/mainPageObject.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/lib/ui/saveArticles.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/lib/ui/searchPageObject.java" charset="UTF-8" />
   </component>
 </project>

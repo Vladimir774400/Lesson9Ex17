@@ -1,9 +1,9 @@
 package lib.ui.ios;
 
-import lib.ui.SaveArticles;
+import lib.ui.saveArticles;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-public class IosSaveArticlePageObject extends SaveArticles
+public class IosSaveArticlePageObject extends saveArticles
 {
     static {
         ARTICLE1_CONTAINS_TEXT = "xpath://*[contains(@text,'Java (programming language')]";
